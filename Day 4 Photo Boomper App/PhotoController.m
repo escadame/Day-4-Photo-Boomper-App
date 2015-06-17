@@ -20,7 +20,7 @@
     NSString *key = [[NSString alloc] initWithFormat:@"%@-%@", photo[@"id"], size];
     UIImage *image = [[SAMCache sharedCache] imageForKey:key];
     
-    if (image) {
+    if ( image ) {
         completion(image);
         return;
     }
