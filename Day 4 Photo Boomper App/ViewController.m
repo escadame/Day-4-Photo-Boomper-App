@@ -13,6 +13,7 @@
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSString *accessToken;
+@property (nonatomic) NSMutableArray *photos;
 @end
 
 @implementation ViewController
@@ -55,6 +56,10 @@
         NSData *data = [[NSData alloc] initWithContentsOfURL:location];
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSLog(@"Response dicitonary is: %@", responseDictionary);
+        self.photos = responseDictionary [@"data"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
     }];
     
     [task resume];
@@ -68,12 +73,14 @@
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.photos count];
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"MSG-3_first_image_7aug12_H.jpg"];
+    //cell.imageView.image = [UIImage imageNamed:@"MSG-3_first_image_7aug12_H.jpg"];
+    NSDictionary *photo = self.photos[indexPath.row];
+    cell.photo = photo;
     return cell;
 }
 
