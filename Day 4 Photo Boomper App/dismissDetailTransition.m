@@ -11,13 +11,13 @@
 @implementation dismissDetailTransition
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.3;
+    return 0.1;
 }
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *detailVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     //detailVC.view.alpha = 0.0;
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         detailVC.view.alpha = 1.0;
     }completion:^(BOOL finished) {
         [detailVC.view removeFromSuperview];
