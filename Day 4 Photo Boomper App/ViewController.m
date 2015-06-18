@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PhotoCollectionViewCell.h"
 #import <SimpleAuth/SimpleAuth.h>
+#import "DetailViewController.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -30,13 +31,14 @@
        // [self.collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
         [SimpleAuth authorize:@"instagram" completion:^(NSDictionary *responseObject, NSError *error) {
             self.accessToken = responseObject[@"credentials"][@"token"];
-            [userDefaults setObject:self.accessToken forKey:@"accessToken "];
+            [userDefaults setObject:self.accessToken forKey:@"accessToken"];
             [userDefaults synchronize];
             NSLog(@"saved credentials");
             [self downloadImages];
     }] ;
     }else {
          NSLog(@"using previous credentials");
+        [self downloadImages];
     }
 }
 
@@ -83,6 +85,16 @@
     cell.photo = photo;
     return cell;
 }
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *photo = self.photos [indexPath.row];
+    
+    DetailViewController *viewController = [DetailViewController new];
+    viewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    viewController.photo = photo;
+    
+    [self presentViewController:viewController  animated:YES completion:nil];
+    
+}
 
 @end
