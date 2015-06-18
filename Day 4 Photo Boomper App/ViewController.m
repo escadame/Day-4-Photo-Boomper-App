@@ -10,8 +10,10 @@
 #import "PhotoCollectionViewCell.h"
 #import <SimpleAuth/SimpleAuth.h>
 #import "DetailViewController.h"
+#import "PresentDetailTransition.h"
+#import "dismissDetailTransition.h"
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIViewControllerTransitioningDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSString *accessToken;
 @property (nonatomic) NSMutableArray *photos;
@@ -49,7 +51,7 @@
 #pragma mark - helper methods
 -(void) downloadImages {
     NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/Kazakhstan/media/recent?access_token=%@", self.accessToken];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"https://api.instagram.com/v1/tags/space/media/recent?access_token=%@", self.accessToken];
    // NSLog(@"%@", urlString);
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
@@ -69,7 +71,7 @@
 
 # pragma mark - UICollectionView Methods
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
@@ -90,11 +92,25 @@
     NSDictionary *photo = self.photos [indexPath.row];
     
     DetailViewController *viewController = [DetailViewController new];
-    viewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     viewController.photo = photo;
+    viewController.transitioningDelegate = self;
+    
     
     [self presentViewController:viewController  animated:YES completion:nil];
     
 }
 
+#pragma mark - Transitioning delegate methods
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    return [PresentDetailTransition new];
+}
+
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    return [dismissDetailTransition new];
+}
+    
 @end

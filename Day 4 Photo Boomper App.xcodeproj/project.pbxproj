@@ -18,6 +18,8 @@
 		3DEE33C61B31400E0096EF94 /* MSG-3_first_image_7aug12_H.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DEE33C51B31400E0096EF94 /* MSG-3_first_image_7aug12_H.jpg */; };
 		3DEE33CA1B3186C70096EF94 /* PhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE33C91B3186C70096EF94 /* PhotoController.m */; };
 		3DEE33CD1B3198320096EF94 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE33CC1B3198320096EF94 /* DetailViewController.m */; };
+		3DEE33D01B329E510096EF94 /* PresentDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE33CF1B329E510096EF94 /* PresentDetailTransition.m */; };
+		3DEE33D31B32B9A90096EF94 /* dismissDetailTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE33D21B32B9A90096EF94 /* dismissDetailTransition.m */; };
 		42CFEB8AA8B1B0F988DE4D07 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC496FB6078623C9F921CB67 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,10 @@
 		3DEE33C91B3186C70096EF94 /* PhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoController.m; sourceTree = "<group>"; };
 		3DEE33CB1B3198320096EF94 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3DEE33CC1B3198320096EF94 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		3DEE33CE1B329E510096EF94 /* PresentDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentDetailTransition.h; sourceTree = "<group>"; };
+		3DEE33CF1B329E510096EF94 /* PresentDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentDetailTransition.m; sourceTree = "<group>"; };
+		3DEE33D11B32B9A90096EF94 /* dismissDetailTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dismissDetailTransition.h; sourceTree = "<group>"; };
+		3DEE33D21B32B9A90096EF94 /* dismissDetailTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dismissDetailTransition.m; sourceTree = "<group>"; };
 		BC496FB6078623C9F921CB67 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD147D413324E15C8ADE96D9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,15 +119,19 @@
 				3DEE33A11B31349C0096EF94 /* AppDelegate.m */,
 				3DEE33A31B31349C0096EF94 /* ViewController.h */,
 				3DEE33A41B31349C0096EF94 /* ViewController.m */,
+				3DEE33CE1B329E510096EF94 /* PresentDetailTransition.h */,
+				3DEE33CF1B329E510096EF94 /* PresentDetailTransition.m */,
 				3DEE33C21B313D010096EF94 /* PhotoCollectionViewCell.h */,
 				3DEE33C31B313D010096EF94 /* PhotoCollectionViewCell.m */,
-				3DEE33C81B3186C70096EF94 /* PhotoController.h */,
-				3DEE33C91B3186C70096EF94 /* PhotoController.m */,
 				3DEE33CB1B3198320096EF94 /* DetailViewController.h */,
 				3DEE33CC1B3198320096EF94 /* DetailViewController.m */,
 				3DEE33A61B31349C0096EF94 /* Main.storyboard */,
 				3DEE33A91B31349C0096EF94 /* Images.xcassets */,
 				3DEE33AB1B31349C0096EF94 /* LaunchScreen.xib */,
+				3DEE33C81B3186C70096EF94 /* PhotoController.h */,
+				3DEE33C91B3186C70096EF94 /* PhotoController.m */,
+				3DEE33D11B32B9A90096EF94 /* dismissDetailTransition.h */,
+				3DEE33D21B32B9A90096EF94 /* dismissDetailTransition.m */,
 				3DEE339C1B31349C0096EF94 /* Supporting Files */,
 			);
 			path = "Day 4 Photo Boomper App";
@@ -303,7 +313,9 @@
 				3DEE33C41B313D010096EF94 /* PhotoCollectionViewCell.m in Sources */,
 				3DEE33A21B31349C0096EF94 /* AppDelegate.m in Sources */,
 				3DEE339F1B31349C0096EF94 /* main.m in Sources */,
+				3DEE33D01B329E510096EF94 /* PresentDetailTransition.m in Sources */,
 				3DEE33CA1B3186C70096EF94 /* PhotoController.m in Sources */,
+				3DEE33D31B32B9A90096EF94 /* dismissDetailTransition.m in Sources */,
 				3DEE33CD1B3198320096EF94 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

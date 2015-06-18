@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.95]];
+    [self.view setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.95]];
     
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.f, 320.f)];
     [self.view addSubview:self.imageView];
